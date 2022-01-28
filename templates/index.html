@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Streaming Video Recorder</title>
+  <!-- css -->
+     <!-- fonts -->
+     <script src="https://kit.fontawesome.com/e7a7e30115.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap');
+    body{
+        background: #1A1A40;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+    }
+    .hd{
+        color: #e63946;
+    }
+    #video{
+        height: auto;
+        width: 350px;
+    }
+    .next{
+        background:#1d3557;
+    }
+    a{
+        color: azure;
+        text-decoration: none;
+    }
+    a:hover{
+        color: #fff;
+    }
+</style>
+<body>
+
+    <div class="container">
+        <h1 class="mt-4 hd">Exam Video Monitor   </h1>
+
+        <p class="text-white text-muted" ><a href="{{url_for('home')}}"> <i class="fas fa-chevron-left"></i>  Back</a></p>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <p >To monitor Exam Malpractices a recorded video of you will also be submitted upon you submiting your Exam Answers</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            
+            <div class="col-md-4">
+                <div id="recorderss">
+                         
+                  </div>
+                <img id="video" src="{{ url_for('video_viewer') }}">
+            </div>
+            <div class="col-md-7">
+                <h5>Exam</h5>
+              <div id="recoder">
+                    
+                <button id="button" class="btn btn-primary">Open Exam</button>
+
+               
+            
+                
+                  
+            
+                <div id="login" style="visibility:hidden">
+                  <button id="closeexam">Close Exam</button>
+                  <a id="download"></a>
+                  <script type="text/javascript" src="{{ url_for('static', filename='recorder.js') }}"></script>
+                
+
+                <div id="myDIV">
+                  <form action=”mailto:geographicalcollins@gmail.com” method=”POST” enctype=”multipart/form-data”>
+                  
+                  
+              
+                    <div id="carouselExampleIndicators" class="carousel slide mt-2" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      </ol>
+
+                    <div class="carousel-inner">
+                        
+                      <div class="carousel-item active">
+                             <div class="card">
+                                 <div class="card-body">
+                                    <h4 class="text-info">1.{{questions[0].Q}}</h4>
+                                    <p class="text-warning"><input type="checkbox" onclick="btnChecked(this)" value="yes" id="q11"/> {{questions[0].A[0]}}</p>
+                                    <p class="text-warning"><input type="checkbox"> {{questions[0].A[1]}}</p>
+                                    <p class="text-warning"><input type="checkbox"> {{questions[0].A[2]}}</p>
+                                    <p class="text-warning"><input type="checkbox"> {{questions[0].A[3]}}</p>
+                                 </div>
+                             </div>       
+                    </div>
+                      <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                               <h4 class="text-info">2.{{questions[1].Q}}</h4>
+                               <p class="text-warning"><input type="checkbox"> {{questions[1].A[0]}}</p>
+                               <p class="text-warning"><input type="checkbox"> {{questions[1].A[1]}}</p>
+                               <p class="text-warning"><input type="checkbox"> {{questions[1].A[2]}}</p>
+                               <p class="text-warning"><input type="checkbox"> {{questions[1].A[3]}}</p>
+                            </div>
+                        </div>       
+                                    
+
+                      </div>
+                      <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                               <h4 class="text-info">3.{{questions[2].Q}}</h4>
+                               <p class="text-warning"><input type="checkbox" > {{questions[2].A[0]}}</p>
+                               <p class="text-warning"><input type="checkbox"> {{questions[2].A[1]}}</p>
+                               <p class="text-warning"><input type="checkbox"> {{questions[2].A[2]}}</p>
+                               <p class="text-warning"><input type="checkbox"> {{questions[2].A[3]}}</p>
+                            </div>
+                        </div>   
+                        
+                        
+                                    
+                    </div>
+                    
+                    
+                    </div>
+
+                   
+
+                    
+                    </div>
+                  </div>
+                  
+                  </form>
+
+                  <!-- <div class="card mt-2">
+                      <p class="text-dark">Answers</p>
+
+                  </div> -->
+                  <div class="card next mt-4">
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only text-info">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only text-info">Next</span>
+                      </a>
+                </div>
+              
+                  
+               
+                
+
+                <!-- end -->
+
+
+
+               
+            </div>
+        </div>
+        
+    </div>
+
+  
+  
+
+   
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+
+
+
+function myFunction(element) {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    element.hidden = true;
+  } else {
+    x.style.display = "none";
+  }
+  
+}
+
+
+
+    $('#carouselExampleIndicators').carousel({
+  interval: 10000,
+  wrap: false
+});
+</script>
+</body>
+</html>
